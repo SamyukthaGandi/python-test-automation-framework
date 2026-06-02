@@ -1,0 +1,42 @@
+[project]
+name = "python-test-automation-framework"
+version = "1.0.0"
+description = "Reusable Python test automation framework with API, UI, database validation, reporting, Docker, and GitHub Actions CI/CD."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+authors = [
+    { name = "Samyuktha Gandi" }
+]
+
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "requests==2.32.3",
+    "pytest==8.3.4",
+    "pytest-html==4.1.1",
+    "pytest-xdist==3.6.1",
+    "pytest-rerunfailures==15.0",
+    "pytest-playwright==0.6.2",
+    "playwright==1.49.1",
+    "pydantic==2.10.4",
+    "sqlalchemy==2.0.36",
+    "allure-pytest==2.13.5",
+    "python-dotenv==1.0.1"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-v --html=reports/pytest_report.html --self-contained-html --alluredir=reports/allure-results"
+markers = [
+    "api: API tests",
+    "ui: UI tests",
+    "db: Database validation tests",
+    "smoke: Smoke tests",
+    "regression: Regression tests",
+    "critical: Critical path tests that validate core business functionality"
+]
+log_cli = true
+log_cli_level = "INFO"
+log_file = "reports/test_run.log"
+log_file_level = "INFO"

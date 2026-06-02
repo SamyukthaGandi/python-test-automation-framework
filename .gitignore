@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+reports/*
+!reports/.gitkeep
+test_app*.db
+app/test_app*.db
+playwright-report/
+allure-report/
+.DS_Store
+.coverage
+htmlcov/

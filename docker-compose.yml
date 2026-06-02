@@ -1,0 +1,10 @@
+services:
+  test-runner:
+    build: .
+    container_name: python-sdet-framework-tests
+    environment:
+      - PYTHONPATH=/app
+      - APP_DB_PATH=/app/test_app.db
+    volumes:
+      - ./reports:/app/reports
+    command: pytest -n auto --reruns 1 --reruns-delay 1 --html=reports/pytest_report.html --self-contained-html
